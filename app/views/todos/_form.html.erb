@@ -1,0 +1,9 @@
+<%= form_with(model: [ todo ], data:{ controller:"reset-form", action: "turbo:submit-end->reset-form#reset"}) do |form| %>
+  <% if todo.errors.any? %>
+    <div style="color: red"><h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2><ul><% todo.errors.each do |error| %><li><%= error.full_message %></li><% end %></ul></div>
+  <% end %>
+
+  <div><%= form.label :title, "Item ", style: "display: block inline" %><%= form.text_field :title %>
+     <%= form.button "add", type: :submit, name: "todo[status]", value: "incomplete" %>
+  </div>
+<% end %>

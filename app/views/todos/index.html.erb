@@ -1,0 +1,10 @@
+<h1>Todos</h1>
+
+<turbo-frame id="new_todo">
+  <%= render "form", todo: Todo.new %>
+</turbo-frame>
+
+<%= turbo_stream_from "todos" %>
+<ul id="todos-list">
+  <%= render @todos %>
+</ul>
